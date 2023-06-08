@@ -12,7 +12,7 @@ const LandingPage = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get('https://dev-example.sanbercloud.com/api/job-vacancy');
-        setJobs([res.data]);
+        setJobs(res.data);
         console.log('sukses GET');
       } catch (error) {
       }
@@ -32,7 +32,7 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
             {
-            jobs.map((job)=>(
+            Object.keys(jobs).map((job)=>(
               <div key={job.id} className="bg-white rounded-lg shadow-md p-4">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold">{job.title}</h2>
